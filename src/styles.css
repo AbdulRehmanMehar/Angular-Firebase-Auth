@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    --primary-color: #2979ce;
+    --primary-acent: #f1f0f0;
+    --secondary-acent: #e0e0e0f1;
+    /* --secondary-acent: #1e1e1e; */
+}

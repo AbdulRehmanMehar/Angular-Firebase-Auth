@@ -1,0 +1,52 @@
+<nav class="cd-stretchy-nav" [ngClass]="status ? 'nav-is-visible': 'false'">
+  <a class="cd-nav-trigger" (click)="toggle()">
+    <div class="bg" *ngIf="!user.authstate" [ngStyle]="
+      {
+        'background-image': 'url(' +  guest  + ')'
+      }
+    " title="Quick Access: Guest"></div>
+    <div class="bg" *ngIf="user.authstate" [ngStyle]="
+      {
+        'background-image': 'url(' +  user.authstate.photoURL  + ')'
+      }
+    " title="Quick Access: {{user.authstate.displayName}}"></div>
+  </a>
+
+  <ul *ngIf="!user.authstate">
+      <li title="Cart" (click)="changeRoute('cart')">
+        <a><span>Cart</span></a>
+        <i class="fas fa-shopping-cart fa-lg"></i>
+      </li>
+      <li title="Login with Google" (click)="user.socialLogin('google')">
+        <a><span>Google</span></a>
+        <i class="fab fa-google fa-lg"></i>
+      </li>
+      <li title="Login with Twitter" (click)="user.socialLogin('twitter')">
+          <a><span>Twitter</span></a>
+          <i class="fab fa-twitter fa-lg"></i>
+        </li>
+      <li title="Login with Facebook" (click)="user.socialLogin('facebook')">
+        <a><span>Facebook</span></a>
+        <i class="fab fa-facebook fa-lg"></i>
+      </li>
+  </ul>
+
+
+  <ul *ngIf="user.authstate">
+      <li title="Cart" (click)="changeRoute('cart')">
+        <a><span>Cart</span></a>
+        <i class="fas fa-shopping-cart fa-lg"></i>
+      </li>
+      <li title="Profile" (click)="changeRoute('profile')">
+        <a><span>Profile</span></a>
+        <i class="fas fa-user fa-lg"></i>
+      </li>
+      <li title="Logout" (click)="user.logout()">
+        <a><span>Logout</span></a>
+        <i class="fas fa-sign-out-alt fa-lg"></i>
+      </li>
+  </ul>
+
+
+  <span aria-hidden="true" class="stretchy-nav-bg"></span>
+</nav>
